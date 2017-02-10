@@ -1,5 +1,5 @@
 {
-  "name": "TodoApp",
+  "name": "todos",
   "version": "1.0.0",
   "private": true,
   "description": "A todo list based on react and redux",

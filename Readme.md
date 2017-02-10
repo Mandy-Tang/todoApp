@@ -1,5 +1,5 @@
 
-# TodoApp
+# Todos
 
 A todo list app based on react and redux
 
