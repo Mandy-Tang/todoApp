@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TodoActions from '../../actions/todos';
+import TodoInput from '../../components/TodoInput';
 import TodoList from '../../components/TodoList';
-import style from './style.css'
+import style from './style.less'
 
 class App extends Component {
   render() {
     const { todos, actions, children } = this.props
     return (
-      <article>
+      <article className="normal">
         <h1>Todos</h1>
+        <TodoInput/>
         <TodoList/>
       </article>
     )
