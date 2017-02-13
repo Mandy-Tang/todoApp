@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as TodoActions from '../../actions/todos';
 import TodoInput from '../../components/TodoInput';
 import TodoList from '../../components/TodoList';
+import TodoFilter from '../../components/TodoFilter';
 import style from './style.less'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
       <article className="normal">
         <h1>Todos</h1>
         <TodoInput/>
+        <TodoFilter/>
         <TodoList/>
       </article>
     )
