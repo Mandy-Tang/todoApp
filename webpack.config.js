@@ -28,6 +28,10 @@ module.exports = {
         loader: 'style!css'
       },
       {
+        test: /\.less/,
+        loader: 'style!css!less',
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: [

@@ -1,11 +1,12 @@
 
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import Header from '../../components/Header'
-import MainSection from '../../components/MainSection'
-import * as TodoActions from '../../actions/todos'
-import style from './style.css'
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as TodoActions from '../../actions/todos';
+import TodoInput from '../../components/TodoInput';
+import TodoList from '../../components/TodoList';
+import TodoFilter from '../../components/TodoFilter';
+import style from './style.less'
 
 console.log("APP render");
 
@@ -14,11 +15,12 @@ class App extends Component {
     debugger;
     const { todos, actions, children } = this.props
     return (
-      <div className={style.normal}>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
-        {children}
-      </div>
+      <article className="normal">
+        <h1>Todos</h1>
+        <TodoInput/>
+        <TodoFilter/>
+        <TodoList/>
+      </article>
     )
   }
 }

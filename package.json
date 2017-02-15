@@ -40,6 +40,8 @@
   "dependencies": {
     "nconf": "^0.8.4",
     "node-notifier": "^4.5.0",
-    "react-render-html": "^0.1.4"
+    "react-render-html": "^0.1.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3"
   }
 }
