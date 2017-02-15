@@ -5,12 +5,9 @@
   "description": "A todo list based on react and redux",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf static && mkdir static",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "NODE_ENV=production webpack --progress",
-    "dev": "NODE_ENV=development webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
-    "build": "npm run clean && npm run compile",
-    "start": "npm run clean && npm run dev"
+    "server": "node server.js",
+    "buildapp": "webpack --progress --colors --config webpack.config.js",
+    "start": "electron main.js"
   },
   "license": "MIT",
   "devDependencies": {
@@ -37,6 +34,12 @@
     "react-router": "^2.0.0",
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
-    "redux-actions": "^0.9.1"
+    "redux-actions": "^0.9.1",
+    "electron-prebuilt": "^0.36.0"
+  },
+  "dependencies": {
+    "nconf": "^0.8.4",
+    "node-notifier": "^4.5.0",
+    "react-render-html": "^0.1.4"
   }
 }

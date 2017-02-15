@@ -7,8 +7,11 @@ import MainSection from '../../components/MainSection'
 import * as TodoActions from '../../actions/todos'
 import style from './style.css'
 
+console.log("APP render");
+
 class App extends Component {
   render() {
+    debugger;
     const { todos, actions, children } = this.props
     return (
       <div className={style.normal}>

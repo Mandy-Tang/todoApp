@@ -1,31 +1,18 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
 var path = require('path')
+var nodeModulesPath = path.resolve(__dirname, 'node_modules')
 
 module.exports = {
-  context: path.join(__dirname, './client'),
   entry: {
-    jsx: './index.js',
-    html: './index.html',
-    vendor: [
-      'react',
-      'react-dom',
-      'react-redux',
-      'react-router',
-      'react-router-redux',
-      'redux'
-    ]
+    jsx: './client/index.js',
   },
   output: {
-    path: path.join(__dirname, './static'),
-    filename: 'bundle.js',
+    path: __dirname + '/',
+    filename: 'app.js',
   },
   module: {
     loaders: [
-      {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
-      },
       {
         test: /\.css$/,
         include: /client/,
@@ -59,13 +46,7 @@ module.exports = {
     })
   ],
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
-    })
-  ],
-  devServer: {
-    contentBase: './client',
-    hot: true
-  }
+     new webpack.HotModuleReplacementPlugin(),
+     new webpack.NoErrorsPlugin()
+    ]
 }
