@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node server.js",
-    "buildapp": "webpack --progress --colors --config webpack.config.js",
+    "buildapp": "webpack --progress --config webpack.config.js",
     "start": "electron main.js"
   },
   "license": "MIT",
