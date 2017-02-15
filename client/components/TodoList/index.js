@@ -8,13 +8,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const todos = [
-      {id: 1, name: 'hello world'},
-      {id: 2, name: 'hello world'},
-      {id: 3, name: 'hello world'},
-      {id: 4, name: 'hello world'},
-      {id: 5, name: 'hello world'}
-    ]
+    const { todos } = this.props;
     return (
       <ul className="todo-list">
         {todos.map(todo => <TodoItem key={todo.id} todo={todo}/>)}
