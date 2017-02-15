@@ -8,10 +8,10 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos } = this.props;
+    const { todos, actions } = this.props;
     return (
       <ul className="todo-list">
-        {todos.map(todo => <TodoItem key={todo.id} todo={todo}/>)}
+        {todos.map(todo => <TodoItem key={todo.id} todo={todo} completeTodo={actions.completeTodo}/>)}
       </ul>
     )
   }
