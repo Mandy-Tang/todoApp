@@ -7,7 +7,7 @@ class TodoItem extends Component {
   }
   render () {
     return (
-      <li className="todo-item">
+      <li className={"todo-item " + (this.props.todo.done ? "todo-item--done" : "")}>
         <span>{this.props.todo.name}</span>
       </li>
     )

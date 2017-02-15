@@ -10,13 +10,13 @@ import style from './style.less'
 
 class App extends Component {
   render() {
-    const { todos, actions, children } = this.props
+    const { todos, actions } = this.props;
     return (
       <article className="normal">
         <h1>Todos</h1>
-        <TodoInput/>
+        <TodoInput addTodo={actions.addTodo}/>
         <TodoFilter/>
-        <TodoList/>
+        <TodoList todos={todos} actions={actions}/>
       </article>
     )
   }
