@@ -25,7 +25,7 @@ class TodoItem extends Component {
     const editing = this.state.editing;
     if (editing) {
       return (
-        <li className={"todo-item " + (this.props.todo.done ? "todo-item--done" : "")}>
+        <li className={"todo-item todo-item--editing " + (this.props.todo.done ? "todo-item--done" : "")}>
           <TodoInput name={this.props.todo.name}
             editing={this.state.editing}
             onSave={::this.handleUpdate}
