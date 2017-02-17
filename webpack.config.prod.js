@@ -4,21 +4,15 @@ var path = require('path')
 var nodeModulesPath = path.resolve(__dirname, 'node_modules')
 
 module.exports = {
-context: path.join(__dirname, './client'),
   entry: {
-    jsx: './index.js',
-    html: './index.html'
+    jsx: './client/index.js',
   },
   output: {
-    path: __dirname + '/',
+    path: __dirname + '/static',
     filename: 'app.js',
   },
   module: {
     loaders: [
-      {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
-      },
       {
         test: /\.css$/,
         include: /client/,
