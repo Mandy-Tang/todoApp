@@ -6,14 +6,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf static && mkdir static && mkdir static/assets",
-    "copy": "cp -rf client/assets static",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "NODE_ENV=production webpack --progress",
-    "dev": "NODE_ENV=development webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
-    "build": "npm run clean && npm run copy && npm run compile",
-    "start-react": "npm run clean && npm run dev",
-    "server": "node server.js",
-    "start": "webpack --progress --config webpack.config.prod.js && electron main.js"
+    "copy": "cp -rf client/assets static && cp client/index.html static",
+    "dev": "node server.js",
+    "compile": "npm run clean && npm run copy && webpack --progress --config webpack.config.prod.js",
+    "build": "npm run compile && electron main.js",
+    "start": "npm run dev"
   },
   "license": "MIT",
   "devDependencies": {

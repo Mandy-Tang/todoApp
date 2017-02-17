@@ -3,7 +3,8 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
 new WebpackDevServer(webpack(config), {
-    publicPath: __dirname + '/client',
+    contentBase: './client',
+    publicPath: '/',
     hot: true,
     historyApiFallback: true,
     inline: true,
@@ -11,7 +12,6 @@ new WebpackDevServer(webpack(config), {
     if (err) {
         console.log(err);
     }
-
     console.log('Listening at localhost:3000');
 });
 
