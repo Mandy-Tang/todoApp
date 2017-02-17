@@ -4,6 +4,11 @@
   &:first-child {
     border-top: 1px solid lightgrey;
   }
+  &:hover {
+    .btn--close {
+      display: inline-block;
+    }
+  }
 }
 .todo-item--done {
   text-decoration: line-through;
@@ -12,6 +17,17 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
+  cursor: pointer;
+  .iconfont {
+    font-size: 24px;
+    color: lightgrey;
+  }
+}
+.btn--close {
+  display: none;
+  position: absolute;
+  right: 24px;
+  vertical-align: middle;
   cursor: pointer;
   .iconfont {
     font-size: 24px;

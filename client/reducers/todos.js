@@ -22,6 +22,9 @@ export default handleActions({
       done: false
     }, ...state]
   },
+  'DELETE_TODO' (state, action) {
+    return state.filter(todo => todo.id !== action.payload.id )
+  },
   'COMPLETE_TODO' (state, action) {
     return state.map(todo => {
       return todo.id === action.payload.id ? {...todo, done: !todo.done} : todo
