@@ -5,7 +5,7 @@
     border-top: 1px solid lightgrey;
   }
   &:hover {
-    .btn--close {
+    .btn--close, .btn--edit {
       display: inline-block;
     }
   }
@@ -13,7 +13,7 @@
 .todo-item--done {
   text-decoration: line-through;
 }
-.btn--check {
+.btn--check, .btn--close, .btn--edit {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
@@ -27,10 +27,10 @@
   display: none;
   position: absolute;
   right: 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  .iconfont {
-    font-size: 24px;
-    color: lightgrey;
-  }
+  margin-right: 0;
+}
+.btn--edit {
+  display: none;
+  position: absolute;
+  right: 48px;
 }

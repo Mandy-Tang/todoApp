@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <article className="normal">
         <h1>Todos</h1>
-        <TodoInput addTodo={actions.addTodo}/>
+        <TodoInput onSave={actions.addTodo}/>
         <TodoFilter/>
         <TodoList todos={todos} actions={actions}/>
       </article>

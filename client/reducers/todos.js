@@ -22,6 +22,11 @@ export default handleActions({
       done: false
     }, ...state]
   },
+  'UPDATE_TODO' (state, action) {
+    return state.map(todo => {
+      return todo.id === action.payload.id ? {...todo, name: action.payload.name} : todo
+    })
+  },
   'DELETE_TODO' (state, action) {
     return state.filter(todo => todo.id !== action.payload.id )
   },
