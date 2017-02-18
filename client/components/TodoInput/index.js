@@ -10,25 +10,34 @@ class TodoInput extends Component {
     this.state = {
       name: this.props.name || '',
       time: this.props.time || new Date().getTime()
-    };
-    this.oldName = this.props.name || ''
+    }
   }
 
   handleChange (e) {
-    this.setState({name: e.target.value})
+    this.setState({name: e.target.value});
   }
 
-  handleSubmit (e) {
-    if (e.which === 13) {
-      const time = document.getElementsByClassName('react-date-field__input')[0].value;
-      const name = e.target.value.trim();
-      this.props.onSave({ name, time });
-      this.setState({name})
+  handleSave (e) {
+    const time = this.refs.dateField.getInput().value;
+    console.log(time)
+    const name = this.state.name;
+    this.props.onSave({ name, time });
+    if (this.props.editing) {
+      this.setState({ name, time })
+    } else {
+      this.setState({name: '', time: new Date().getTime()})
     }
   }
   handleBlur () {
     if (this.props.editing) {
       this.props.onSave(this.oldName);
+    }
+  }
+  handleCancel () {
+    if (this.props.editing) {
+      this.props.onCancel();
+    } else {
+      this.setState({name: '', time: new Date().getTime()})
     }
   }
 
@@ -39,14 +48,14 @@ class TodoInput extends Component {
                type="text"
                autoFocus="true"
                value={this.state.name}
-               onBlur={::this.handleBlur}
                onChange={::this.handleChange}
-               onKeyDown={::this.handleSubmit}
               />
-        <DateField
+        <DateField ref="dateField"
           dateFormat="YYYY-MM-DD HH:mm:ss"
           defaultValue={this.state.time}
           />
+        <button className="btn--save" onClick={::this.handleSave}><i className="iconfont icon-save"></i></button>
+        <button className="btn--refresh" onClick={::this.handleCancel}><i className="iconfont icon-close"></i></button>
       </div>
     )
   }
