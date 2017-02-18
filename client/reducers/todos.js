@@ -6,13 +6,13 @@ const initialState = [
     id: 0,
     name: 'add TodoInput Component',
     done: false,
-    time: 1487391601472
+    time: 1487405683337
   },
   {
     id: 1,
-    name: 'add TodoItem Component',
+    name: 'add TodoItem Component 2',
     done: true,
-    time: 1487391601472
+    time: 1487405783337
   }
 ];
 

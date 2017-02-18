@@ -24,8 +24,20 @@ class TodoItem extends Component {
   triggerEdit (e) {
     this.setState({editing: true});
   }
+  checkTime () {
+    var timeTicker = setInterval(() => {
+      if( (0 < (this.props.todo.time - new Date().getTime()) &&  ( this.props.todo.time - new Date().getTime() )< 10*60*1000 ) ) {
+        new Notification( 'you need to do', {
+          title: this.props.todo.name,
+          body: this.props.todo.name + 'before' + Moment(this.props.todo.time).format('YYYY-MM-DD HH:mm:ss')
+        });
+        clearInterval(timeTicker);
+      }
+    }, 1000)
+  }
   render () {
     const editing = this.state.editing;
+    this.checkTime();
     if (editing) {
       return (
         <li className={"todo-item todo-item--editing " + (this.props.todo.done ? "todo-item--done" : "")}>
