@@ -8,10 +8,22 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, actions } = this.props;
+    const { todos, actions, filter } = this.props;
     return (
       <ul className="todo-list">
-        {todos.map(todo => <TodoItem key={todo.id} todo={todo} {...actions}/>)}
+        {todos.map(todo => {
+          if (filter === 'ALL') {
+            return <TodoItem key={todo.id} todo={todo} {...actions}/>
+          } else if (filter === 'DONE') {
+            if (todo.done) {
+              return <TodoItem key={todo.id} todo={todo} {...actions}/>
+            }
+          } else if (filter === 'UNDO') {
+            if (!todo.done) {
+              return <TodoItem key={todo.id} todo={todo} {...actions}/>
+            }}
+          }
+        )}
       </ul>
     )
   }
