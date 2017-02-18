@@ -5,12 +5,14 @@ const initialState = [
   {
     id: 0,
     name: 'add TodoInput Component',
-    done: false
+    done: false,
+    time: 1487391601472
   },
   {
     id: 1,
     name: 'add TodoItem Component',
-    done: true
+    done: true,
+    time: 1487391601472
   }
 ];
 
@@ -18,7 +20,8 @@ export default handleActions({
   'ADD_TODO' (state, action) {
     return [{
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-      name: action.payload,
+      name: action.payload.name,
+      time: action.payload.time,
       done: false
     }, ...state]
   },
